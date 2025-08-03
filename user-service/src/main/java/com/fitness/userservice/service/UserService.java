@@ -70,6 +70,11 @@ public class UserService {
         return userResponse;
     }
 
+    public Boolean existByUserId(String userId) {
+        log.info("Calling User Validation API for userID: {} ",userId);
+        return userRepository.existsById(userId);
+    }
+
 //    public Boolean existByUserId(String userId) {
 //        log.info("Calling User Validation API for userId: {}", userId);
 //        return userRepository.existsByKeycloakId(userId);

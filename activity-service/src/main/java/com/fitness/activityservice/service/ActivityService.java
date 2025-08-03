@@ -20,11 +20,11 @@ public class ActivityService {
     private final ActivityRepository activityRepository;
     private final UserValidationService userValidationService;
     private final RabbitTemplate rabbitTemplate;
-
-    @Value("${rabbitmq.exchange.name}")
+// RabitTemplate is a helper class that simplifies synchronous RabbitMQ access (sending and receiving messages)
+    @Value("${rabbitmq.exchange.name}")// By this we are dynamically getting the properties  which are already declared in the application.yml
     private String exchange;
 
-    @Value("${rabbitmq.routing.key}")
+    @Value("${rabbitmq.routing.key}")// By this we are dynamically getting the properties which are already declared in the application.yml
     private String routingKey;
 
     public ActivityResponse trackActivity(ActivityRequest request) {
