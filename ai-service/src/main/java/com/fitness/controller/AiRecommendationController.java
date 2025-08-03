@@ -27,5 +27,4 @@ public class AiRecommendationController {
     public ResponseEntity<Recommendation> getActivityRecommendation(@PathVariable String activityId) {
         return ResponseEntity.ok(aiRecommendationService.getActivityRecommendation(activityId));
     }
-
 }
