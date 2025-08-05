@@ -39,4 +39,7 @@ public class RabbitMQConfig {
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
     }
+
+  // Note: These beans only configure RabbitMQ;
+    // they don’t send messages. They define the infrastructure.
 }

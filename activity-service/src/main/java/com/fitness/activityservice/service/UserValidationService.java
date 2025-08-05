@@ -30,4 +30,16 @@ public class UserValidationService {
         }
         return false;
     }
+    /*What this does:
+Calls the User Service endpoint /api/users/{userId}/validate using WebClient.
+
+Uses the base URL via service name (http://USER-SERVICE) and appends the URI path.
+
+.retrieve() initiates the HTTP GET call.
+
+.bodyToMono(Boolean.class) converts the JSON response to a Boolean.
+
+.block() makes the call synchronously, returning a boolean.
+
+If the response status is 404 or 400, you catch it and throw a RuntimeException.*/
 }
