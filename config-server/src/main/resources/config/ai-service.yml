@@ -1,12 +1,11 @@
 server:
-  port: 8082
-
+  port: 8083
 
 spring:
-
   data:
     mongodb:
-      uri: mongodb://localhost:27017/fitnessapp_activityDB
+      uri: mongodb://localhost:27017/fitnessrecommendation
+      database: fitnessrecommendation
   rabbitmq:
     host: localhost
     port: 5672
@@ -24,6 +23,12 @@ rabbitmq:
   exchange:
     name: fitness.exchange
   queue:
-    name: activity:queue
+    name: activity.queue
   routing:
-    key: activity:tracking
+    key: activity.tracking
+
+
+gemini:
+  api:
+    url: ${GEMINI_API_URL}
+    key: ${GEMINI_API_KEY}
