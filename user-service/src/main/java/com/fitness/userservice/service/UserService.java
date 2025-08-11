@@ -22,7 +22,7 @@ public class UserService {
             User existingUser = userRepository.findByEmail(request.getEmail());
             UserResponse userResponse = new UserResponse();
             userResponse.setId(existingUser.getId());
-          //  userResponse.setKeycloakId(existingUser.getKeycloakId());
+            userResponse.setKeycloakId(existingUser.getKeycloakId());
             userResponse.setPassword(existingUser.getPassword());
             userResponse.setEmail(existingUser.getEmail());
             userResponse.setFirstName(existingUser.getFirstName());
@@ -35,13 +35,13 @@ public class UserService {
         User user = new User();
         user.setEmail(request.getEmail());
         user.setPassword(request.getPassword());
-        // user.setKeycloakId(request.getKeycloakId());
+        user.setKeycloakId(request.getKeycloakId());
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
 
         User savedUser = userRepository.save(user);
         UserResponse userResponse = new UserResponse();
-       // userResponse.setKeycloakId(savedUser.getKeycloakId());
+        userResponse.setKeycloakId(savedUser.getKeycloakId());
         userResponse.setId(savedUser.getId());
         userResponse.setPassword(savedUser.getPassword());
         userResponse.setEmail(savedUser.getEmail());
@@ -70,15 +70,15 @@ public class UserService {
         return userResponse;
     }
 
-    public Boolean existByUserId(String userId) {
-        log.info("Calling User Validation API for userID: {} ",userId);
-        return userRepository.existsById(userId);
-    }
-
 //    public Boolean existByUserId(String userId) {
-//        log.info("Calling User Validation API for userId: {}", userId);
-//        return userRepository.existsByKeycloakId(userId);
+//        log.info("Calling User Validation API for userID: {} ",userId);
+//        return userRepository.existsById(userId);
 //    }
+
+    public Boolean existByUserId(String userId) {
+        log.info("Calling User Validation API for userId: {}", userId);
+        return userRepository.existsByKeycloakId(userId);
+    }
 
     }
 
